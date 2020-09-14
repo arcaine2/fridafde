@@ -50,7 +50,7 @@ How to use it (with auto-restart enabled):
 2. Run "python3 hooking-vold.py" in a second terminal.
 3. Run "python3 hooking-mount.py -r" or "python3 hooking-mount.py -r <number_of_tests_before_restart>" in third terminal.
 4. Sometimes when the correct code is found, the process hangs the device. Just issue "adb reboot" to restart secure startup and then enter the correct code.
-5. Passcode will be stored in FOUND.txt
+5. Passcode will be saved in FOUND.txt
 
 ##
 
