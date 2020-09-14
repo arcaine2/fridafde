@@ -56,4 +56,4 @@ How to use it (with auto-restart enabled):
 
 Modified code from https://github.com/Magpol/fridafde  
 Credits to Magpol  
-Author: Arcain 
+Updated: Arcain 
