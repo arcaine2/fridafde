@@ -25,3 +25,35 @@ How to use it:
 2. Run "python3 hooking-vold.py" in a separate terminal.
 3. Run "python3 hooking-mount.py" in main terminal.
 4. Sometimes when the correct code is found, the process hangs the device. Just issue "adb reboot" to restart secure startup and then enter the correct code.
+
+# UPDATE:
+
+After some testing it turned out that script crashes after almost 12000 attempts, and slowing down after ~5000, at least on S7 Edge. Rewrote part of the script, adding some new features, like:
+
+* custom PIN option support any range, any length. Entering 0000 to 999999 will check all 6 digits for example even though start PIN is 4 digits long! Max range length is always used here.
+* auto-restart option to reboot the phone automatically after set tests done, and continue bruteforcing from there. Run startFrida.sh and hooking-mount.py with -r flag. It's also possible to set after how many tests phone will reboot. For example, "python3 hooking-mount.py -r 5000" will restart the process after 5000 codes tested (10000 is the default one)
+* test if hooking-vold.py is running and/or was restarted along with the phone. It's being done by checking content of bf_status file.
+* a bit more graceful exit once the passcode is found, with correct passcode more visible and saved into a FOUND.txt file. Script still crashes, but right after code is found instead of keep going for a longer while as before.
+
+![](/fridafde_updated.png)
+
+How to use it (normal way):
+
+1. Run "startFrida.sh" to upload and start FRiDA server on your connected device.
+2. Run "python3 hooking-vold.py" in a separate terminal.
+3. Run "python3 hooking-mount.py" in main terminal.
+4. Sometimes when the correct code is found, the process hangs the device. Just issue "adb reboot" to restart secure startup and then enter the correct code.
+
+How to use it (with auto-restart enabled):
+
+1. Run "startFrida.sh -r" to upload and start FRiDA server on your connected device and wait for restart signal
+2. Run "python3 hooking-vold.py" in a second terminal.
+3. Run "python3 hooking-mount.py -r" or "python3 hooking-mount.py -r <number_of_tests_before_restart>" in third terminal.
+4. Sometimes when the correct code is found, the process hangs the device. Just issue "adb reboot" to restart secure startup and then enter the correct code.
+5. Passcode will be stored in FOUND.txt
+
+##
+
+Modified code from https://github.com/Magpol/fridafde
+Credits to Magpol
+Author: Arcain 
