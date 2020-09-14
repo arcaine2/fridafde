@@ -30,8 +30,8 @@ How to use it:
 
 After some testing it turned out that script crashes after almost 12000 attempts, and slowing down after ~5000, at least on S7 Edge. Rewrote part of the script, adding some new features, like:
 
-* custom PIN option support any range, any length. Entering 0000 to 999999 will check all 6 digits for example even though start PIN is 4 digits long! Max range length is always used here.
-* auto-restart option to reboot the phone automatically after set tests done, and continue bruteforcing from there. Run startFrida.sh and hooking-mount.py with -r flag. It's also possible to set after how many tests phone will reboot. For example, "python3 hooking-mount.py -r 5000" will restart the process after 5000 codes tested (10000 is the default one)
+* custom PIN option supporting any range, any length. Entering 0000 to 999999 for example will check all 6 digits codes, even though start PIN is 4 digits long. Max range length is always used here!
+* auto-restart option to reboot the phone automatically after set tests done, and continue bruteforcing from there. Run startFrida.sh as well as hooking-mount.py with -r flag. It's also possible to set after how many tests phone will reboot. For example, "python3 hooking-mount.py -r 5000" will restart the device after 5000 codes tested (10000 is the default one)
 * test if hooking-vold.py is running and/or was restarted along with the phone. It's being done by checking content of bf_status file.
 * a bit more graceful exit once the passcode is found, with correct passcode more visible and saved into a FOUND.txt file. Script still crashes, but right after code is found instead of keep going for a longer while as before.
 
