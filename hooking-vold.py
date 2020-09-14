@@ -3,7 +3,7 @@
 # Modified code from https://github.com/Magpol/fridafde
 # Credits to Magpol 
 #
-# Author: Arcain
+# Updated: Arcain 
 #
 # Added:
 #   * custom PIN range
